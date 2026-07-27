@@ -1,0 +1,24 @@
+﻿using Ecommerce.Domain.Entities.Orders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ecommerce.Application.Specifications
+{
+    public class OrderSpecifications:BaseSpecifications<Order,Guid>
+    {
+        public OrderSpecifications(string email):base(o=>o.BuyerEmail == email)
+        {
+            AddInclude(o => o.delivaryMethod);
+            AddInclude(o => o.Items);
+            AddOrderByDesc(o => o.OrderDate);
+
+        }
+        public OrderSpecifications(Guid id , string email):base(o=>o.Id == id && o.BuyerEmail == email)
+        {
+            
+        }
+    }
+}
