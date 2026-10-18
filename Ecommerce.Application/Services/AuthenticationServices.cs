@@ -33,7 +33,11 @@ namespace Ecommerce.Application.Services
             }
             // else .. Check on password 
             var PasswordCheck = await identityServices.CheckPasswordAsync(loginDto.Email, loginDto.Password, ct);
-            if (!PasswordCheck.IsSuccessed)
+            //if (!PasswordCheck.IsSuccessed)
+            //{
+            //    return Result<UserDto>.Fail(Error.UnAuthorized("InValid Email or Password"));
+            //}
+            if (!PasswordCheck.IsSuccessed || !PasswordCheck.data)
             {
                 return Result<UserDto>.Fail(Error.UnAuthorized("InValid Email or Password"));
             }

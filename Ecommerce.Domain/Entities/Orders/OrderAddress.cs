@@ -13,5 +13,6 @@ namespace Ecommerce.Domain.Entities.Orders
         public string  Street { get; set; } = default!;
         public string City { get; set; } = default!;
         public string Countery { get; set; } = default!;
+       
     }
 }

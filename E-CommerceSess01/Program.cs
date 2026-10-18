@@ -235,7 +235,7 @@ namespace E_CommerceSess01
                   kont bst5dm Database wa7da  
                   kman fel BLL kont bst5dm Service w kant btndh mn gwaha 3la UnitOfWork 34an twsl ll Repository wmno ll queries 34an agib al data
                   fa al repo kant tbne al Query w trg3 .. btrg3 eh b2a ?? 
-                  kont brg3 object mn al data lma kont bst5dm first or defult aw al 7gat aly ast5dmnaha -> wel data onject de kant btst5dmha al service bta3te
+                  kont brg3 object mn al data lma kont bst5dm first or defult aw al 7gat aly ast5dmnaha -> wel data object de kant btst5dmha al service bta3te
                   tb afrd lw fel repo da bdl ma arg3 (data object) = arg3 (IQuarable) y3ne btrg3 Query .. y3ne .where() msln 
                   da m3nah an al service de gtlha al Query w an al service de htktb query gwaha 
 
@@ -2670,6 +2670,8 @@ namespace E_CommerceSess01
 
             #endregion
 
+            #region Session08
+
             #region Payment Module OverView 
             /*
               a7na kan 3ndna Basket w 3arfen ano hyt7wl l Order .. w 3mlna f3ln Order Module w creatna al Order 
@@ -2846,6 +2848,8 @@ namespace E_CommerceSess01
             note : ana dori k backend any a create Payment intent ll frontend yst5dmha bs 
              */
             #endregion
+
+            #endregion 
 
             #endregion
         }

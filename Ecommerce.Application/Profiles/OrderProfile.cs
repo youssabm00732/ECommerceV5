@@ -16,13 +16,21 @@ namespace Ecommerce.Application.Profiles
         {
             CreateMap<DelivaryMethod, DeliveryMethodDto>();
 
-            CreateMap<OrderAddress, AddressDto>().ReverseMap();
+            //CreateMap<OrderAddress, AddressDto>().ReverseMap();
+            CreateMap<OrderAddress, AddressDto>()
+          .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Countery)).ReverseMap()
+          .ForMember(dest => dest.Countery,opt => opt.MapFrom(src => src.Country));
 
-            CreateMap<Order, OrderToReturnDto>()
-                .ForMember(dest => dest.DeliveryMethod, opt => opt.MapFrom(src => src.delivaryMethod.ShortName))
-                .ForMember(dest => dest.DeliveryCost, opt => opt.MapFrom(src => src.delivaryMethod.Cost))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
-                .ForMember(dest => dest.Total, opt => opt.MapFrom(src => src.GetTotal()));
+            //CreateMap<Order, OrderToReturnDto>()
+            //    .ForMember(dest => dest.DeliveryMethod, opt => opt.MapFrom(src => src.delivaryMethod.ShortName))
+            //    .ForMember(dest => dest.DeliveryCost, opt => opt.MapFrom(src => src.delivaryMethod.Cost))
+            //    .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+            //    .ForMember(dest => dest.Total, opt => opt.MapFrom(src => src.GetTotal()));
+            CreateMap<Order, OrderToReturnDto>().ForMember(dest => dest.ByerEmail,opt => opt.MapFrom(src => src.BuyerEmail))
+           .ForMember(dest => dest.DeliveryMethod,opt => opt.MapFrom(src => src.delivaryMethod.ShortName))
+           .ForMember(dest => dest.DeliveryCost,opt => opt.MapFrom(src => src.delivaryMethod.Cost))
+           .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+           .ForMember(dest => dest.Total, opt => opt.MapFrom(src => src.GetTotal()));
 
             CreateMap<OrderItem, OrderItemDto>()
                 .ForMember(dest => dest.ProudactId, opt => opt.MapFrom(src => src.Proudact.ProudactId))
